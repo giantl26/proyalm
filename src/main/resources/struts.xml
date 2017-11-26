@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <!--<constant name="struts.action.extension"  value="html"/>-->
+    <constant name="struts.devMode"  value="true"/>
+    <constant name="struts.custom.i18n.resources" value="global"/>
+    <constant name="struts.locale" value="es" />
+    
+    <package name="default"  extends="struts-default, json-default">
+        
+        <result-types>
+            <result-type name = "tiles" 
+                         class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        <action name="login" class="com.pe.giancarlo.proyalm.Action.LoginAction" method="validar">
+        <result name="input" type="json">
+        <param name="noCache">true</param>
+        <param name="excludeNullProperties">true</param>
+        <param name="msj">mensaje</param>
+        </result>
+        <result name="success" type="redirect">cliente</result>
+        </action>
+        <action name="init" class="com.pe.giancarlo.proyalm.Action.LoginAction" method="init">
+            <result  type="tiles">d_login</result>
+        </action>
+
+        <action name="cliente" class="com.pe.giancarlo.proyalm.Action.GestionarPersonaAction" 
+                method="executar">
+            <result name="success" type="tiles">d_gestcliente</result>
+        </action>
+        <action name="ipersona" class="com.pe.giancarlo.proyalm.Action.GestionarPersonaAction" 
+                method="Ingresar">
+            <result name="success" type="redirect">cliente</result>      
+        </action>
+        
+        <action name="upersona" class="com.pe.giancarlo.proyalm.Action.GestionarPersonaAction" 
+                method="Editar">
+            <result name="success" type="redirect">cliente</result>
+        </action>
+
+        <action name="espersona" class="com.pe.giancarlo.proyalm.Action.GestionarPersonaAction" 
+                 method="Estado">
+            <result name="success" type="redirect">cliente</result>
+        </action>
+
+    </package>
+
+</struts>

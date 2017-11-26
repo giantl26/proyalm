@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <!--
+-->
+<mapper namespace="com.pe.giancarlo.proyalm.Mapper.IUsuarioMapper">
+    
+    <resultMap id="usuariomap" type="com.pe.giancarlo.proyalm.beans.Usuario">
+        <id column="id" property="id"/>
+        <result column="usu" property="usu"/>
+        <result column="est_act" property="est_act"/>
+        <result column="est_act" property="est_act"/>
+        <association property="persona_id"  javaType="com.pe.giancarlo.proyalm.beans.Persona">
+            <id column="persona_id" property="id" />
+            <id column="dni" property="dni" />
+            <id column="nom" property="nom" />
+            <id column="ape_pat" property="ape_pat" />
+            <id column="ape_mat" property="ape_mat" />
+            <id column="fec_nac" property="fec_nac" />
+            <id column="dir" property="dir" />
+        </association> 
+         <association property="rol_id"  javaType="com.pe.giancarlo.proyalm.beans.Rol">
+            <id column="rol_id" property="id" />
+            <id column="car" property="car" />
+            <id column="des" property="des" />           
+        </association>  
+    </resultMap>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration
+2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="p_plantilla" 
+	            template="/resources/plantilla/plantillaLogin.jsp">	      
+	      <put-attribute name="cabecera" 
+	                     value="/resources/comun/cabeceralogin.jsp"/>	      
+	      <put-attribute name="cuerpo" 
+	                     value=".cuerpo"/>          
+	      <put-attribute name="pie" 
+	                     value="/resources/comun/pie.jsp"/>                   
+	</definition>    
+        
+        <definition name="d_login" extends="p_plantilla">	
+	      	<put-attribute name="cuerpo" 
+	                     value="/pages/login.jsp"/>	
+	</definition>
+        <definition name="d_gestcliente" extends="p_plantilla">	
+	      	<put-attribute name="cuerpo" 
+	                     value="/pages/mcliente/gestionarcliente.jsp"/>	
+	</definition>
+       
+</tiles-definitions>
+
